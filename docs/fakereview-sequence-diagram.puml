@@ -1,0 +1,96 @@
+@startuml
+title FOR USERS:\nPLR USER SEQUENCE
+
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam roundcorner 0
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam ParticipantPadding 18
+skinparam BoxPadding 8
+skinparam ArrowColor black
+skinparam LifeLineBorderColor #8a8a8a
+skinparam LifeLineBackgroundColor white
+skinparam ParticipantBorderColor #666666
+skinparam ParticipantBackgroundColor white
+skinparam ActorBorderColor #666666
+skinparam ActorBackgroundColor white
+skinparam SequenceGroupBorderColor black
+skinparam SequenceGroupBackgroundColor white
+skinparam SequenceGroupHeaderFontStyle bold
+hide footbox
+
+actor User
+participant Frontend
+participant Backend
+participant "Mail (SMTP)" as Mail
+database MongoDB
+
+== 1. USER LOGIN / SIGNUP WITH OTP ==
+
+User -> Frontend : Enter mail and password
+Frontend -> Backend : Request OTP
+Backend -> MongoDB : Validate details
+Backend -> Mail : Send OTP
+Mail --> Backend : OTP sent
+Backend --> Frontend : OTP response
+
+User -> Frontend : Enter OTP
+Frontend -> Backend : Submit OTP
+Backend -> MongoDB : Verify OTP
+MongoDB --> Backend : Valid / Invalid
+Backend --> Frontend : Login result
+Frontend --> User : Open workspace
+
+== 2. EMAIL VERIFICATION FLOW ==
+
+User -> Frontend : Request verification
+Frontend -> Backend : Verify mail
+Backend -> MongoDB : Read / update token
+Backend -> Mail : Send link or OTP
+Mail --> Backend : Sent
+Backend --> Frontend : Verification result
+
+== 3. REVIEW ANALYSIS OPERATION ==
+
+User -> Frontend : Submit review
+Frontend -> Backend : Analyze review
+Backend -> MongoDB : Read user data
+Backend -> Backend : Run analysis
+Backend -> MongoDB : Save result
+MongoDB --> Backend : Saved
+Backend --> Frontend : Result + confidence
+Frontend --> User : Show analysis
+
+User -> Frontend : Download report
+Frontend -> Backend : Track download
+Backend -> MongoDB : Save log
+
+== 4. DASHBOARD / HISTORY ACCESS ==
+
+User -> Frontend : Open dashboard
+Frontend -> Backend : Get dashboard
+Backend -> MongoDB : Fetch stats
+MongoDB --> Backend : Stats data
+Backend --> Frontend : Dashboard data
+
+User -> Frontend : Open history
+Frontend -> Backend : Get history
+Backend -> MongoDB : Fetch reviews
+MongoDB --> Backend : History data
+Backend --> Frontend : History data
+
+== 5. FEEDBACK / LOGOUT ==
+
+User -> Frontend : Submit feedback
+Frontend -> Backend : Send feedback
+Backend -> MongoDB : Save feedback
+
+User -> Frontend : Upload file
+Frontend -> Backend : Track upload
+Backend -> MongoDB : Save upload log
+
+User -> Frontend : Logout
+Frontend --> User : Session closed
+
+@enduml

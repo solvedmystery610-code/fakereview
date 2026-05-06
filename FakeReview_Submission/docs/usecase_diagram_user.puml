@@ -1,0 +1,102 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "User" as user
+actor "Google OAuth\nProvider" as google
+
+actor "SMTP Mail Server" as smtp <<Service>>
+actor "MongoDB Server" as db <<Database>>
+
+
+rectangle "FakeReview System" {
+  usecase "Register / Sign Up" as UC1
+  usecase "Login (OTP)" as UC2
+  usecase "Login / Signup (Google)" as UC3
+  usecase "Verify Email / OTP" as UC4
+  
+  usecase "Analyze Single Review" as UC5
+  usecase "Analyze Batch Reviews" as UC6
+  usecase "View Explainability" as UC7
+  usecase "View Dashboard" as UC8
+  usecase "View History" as UC9
+  usecase "Submit Feedback" as UC10
+  usecase "Download Report" as UC11
+  usecase "Logout" as UC12
+
+  usecase "Store Registration Data" as iUC1
+  usecase "Validate User Login" as iUC2
+  usecase "Validate Google Token" as iUC3
+  usecase "Validate Verification Token" as iUC4
+  
+  usecase "Check Duplicate Pattern" as iUC5a
+  usecase "Run Single ML Check" as iUC5b
+  usecase "Store Analysis Result" as iUC5c
+  
+  usecase "Process Batch File Data" as iUC6a
+  usecase "Run Batch ML Process" as iUC6b
+  usecase "Store Batch Results" as iUC6c
+  
+  usecase "Retrieve Explainability Data" as iUC7
+  usecase "Retrieve Dashboard Data" as iUC8
+  usecase "Retrieve History Data" as iUC9
+  usecase "Store Feedback Data" as iUC10
+  usecase "Track Download Activity" as iUC11
+}
+
+user --> UC1
+user --> UC2
+user --> UC3
+user --> UC4
+user --> UC5
+user --> UC6
+user --> UC7
+user --> UC8
+user --> UC9
+user --> UC10
+user --> UC11
+user --> UC12
+
+google --> UC3
+
+UC1 ..> iUC1 : <<include>>
+UC2 ..> iUC2 : <<include>>
+UC3 ..> iUC3 : <<include>>
+UC4 ..> iUC4 : <<include>>
+
+UC5 ..> iUC5a : <<include>>
+UC5 ..> iUC5b : <<include>>
+UC5 ..> iUC5c : <<include>>
+
+UC6 ..> iUC6a : <<include>>
+UC6 ..> iUC6b : <<include>>
+UC6 ..> iUC6c : <<include>>
+
+UC7 ..> iUC7 : <<include>>
+UC8 ..> iUC8 : <<include>>
+UC9 ..> iUC9 : <<include>>
+UC10 ..> iUC10 : <<include>>
+UC11 ..> iUC11 : <<include>>
+
+iUC1 --> db
+iUC1 --> smtp
+
+iUC2 --> db
+iUC3 --> db
+
+iUC4 --> db
+iUC4 --> smtp
+
+iUC5a --> db
+iUC5b --> db
+iUC5c --> db
+iUC6a --> db
+iUC6b --> db
+iUC6c --> db
+iUC7 --> db
+iUC8 --> db
+iUC9 --> db
+iUC10 --> db
+iUC11 --> db
+
+@enduml

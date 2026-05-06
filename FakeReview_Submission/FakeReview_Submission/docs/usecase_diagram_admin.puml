@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Administrator" as admin
+actor "MongoDB Server" as db <<Database>>
+
+rectangle "FakeReview Admin System" {
+  usecase "Admin Login" as UC1
+  usecase "View Analytics" as UC2
+  usecase "Manage Users" as UC3
+  usecase "Manage Reviews" as UC4
+  usecase "Manage Feedback" as UC5
+  usecase "Logout" as UC6
+
+  usecase "Validate Admin Role" as R1
+  usecase "Fetch System Data" as R2
+  usecase "Update User Status" as R3
+  usecase "Delete Review Data" as R4
+}
+
+' Plain associations (no arrows)
+admin -- UC1
+admin -- UC2
+admin -- UC3
+admin -- UC4
+admin -- UC5
+admin -- UC6
+
+' Relationships between use cases (includes keep dashed arrows)
+UC1 ..> R1 : <<include>>
+UC2 ..> R2 : <<include>>
+UC3 ..> R3 : <<include>>
+UC4 ..> R4 : <<include>>
+
+' Plain associations to database (no arrows)
+R1 -- db
+R2 -- db
+R3 -- db
+R4 -- db
+
+@enduml

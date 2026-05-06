@@ -1,0 +1,235 @@
+<mxfile host="app.diagrams.net" modified="2026-04-15T10:05:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="admin-sequence" name="Admin Sequence Diagram">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="FAKEREVIEWAI ADMIN SEQUENCE" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="430" y="20" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="actorAdmin" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="30" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="objFrontend" value="Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="390" y="75" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="objBackend" value="Backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="575" y="75" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="objMongo" value="MongoDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="760" y="70" width="70" height="38" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="life1" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#888888;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="235" y="120" width="1" height="1320" as="geometry"/>
+        </mxCell>
+        <mxCell id="life2" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#888888;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="120" width="1" height="1320" as="geometry"/>
+        </mxCell>
+        <mxCell id="life3" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#888888;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="120" width="1" height="1320" as="geometry"/>
+        </mxCell>
+        <mxCell id="life4" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#888888;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="795" y="120" width="1" height="1320" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sec1" value="1. Admin Authentication" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="190" y="135" width="660" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec2" value="2. Dashboard &amp; Stats" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="190" y="390" width="660" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec3" value="3. User Management" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="190" y="565" width="660" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec4" value="4. Review Moderation" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="190" y="820" width="660" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec5" value="5. Logout" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="190" y="1075" width="660" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a1" value="Enter admin email &amp; password" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="175" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="Admin login request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="actorAdmin" target="objFrontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="200" as="sourcePoint"/>
+            <mxPoint x="435" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="POST /login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objFrontend" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="230" as="sourcePoint"/>
+            <mxPoint x="620" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="Validate admin credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objBackend" target="objMongo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="260" as="sourcePoint"/>
+            <mxPoint x="795" y="260" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="Credentials valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objMongo" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="290" as="sourcePoint"/>
+            <mxPoint x="620" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="Login success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objBackend" target="objFrontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="320" as="sourcePoint"/>
+            <mxPoint x="435" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="Admin panel opens" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="320" width="120" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a3" value="View dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="430" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="GET /admin/overview" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objFrontend" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="455" as="sourcePoint"/>
+            <mxPoint x="620" y="455" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="Fetch stats &amp; activity" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objBackend" target="objMongo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="485" as="sourcePoint"/>
+            <mxPoint x="795" y="485" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" value="Summary data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objMongo" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="515" as="sourcePoint"/>
+            <mxPoint x="620" y="515" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m9" value="Show dashboard cards / tables" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objBackend" target="objFrontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="535" as="sourcePoint"/>
+            <mxPoint x="435" y="535" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="a4" value="Manage users" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="610" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="m10" value="GET /admin/users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objFrontend" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="635" as="sourcePoint"/>
+            <mxPoint x="620" y="635" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m11" value="Select all users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objBackend" target="objMongo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="665" as="sourcePoint"/>
+            <mxPoint x="795" y="665" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m12" value="Users data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objMongo" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="695" as="sourcePoint"/>
+            <mxPoint x="620" y="695" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m13" value="Display user table" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objBackend" target="objFrontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="725" as="sourcePoint"/>
+            <mxPoint x="435" y="725" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5" value="Ban / unblock / delete user" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="70" y="735" width="150" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="m14" value="POST /admin/user-action" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objFrontend" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="760" as="sourcePoint"/>
+            <mxPoint x="620" y="760" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m15" value="Update user record" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objBackend" target="objMongo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="785" as="sourcePoint"/>
+            <mxPoint x="795" y="785" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m16" value="Action success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objMongo" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="810" as="sourcePoint"/>
+            <mxPoint x="620" y="810" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="a6" value="Moderate reviews" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="110" y="865" width="110" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="m17" value="GET /admin/reviews" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objFrontend" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="890" as="sourcePoint"/>
+            <mxPoint x="620" y="890" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m18" value="Fetch reviews" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objBackend" target="objMongo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="920" as="sourcePoint"/>
+            <mxPoint x="795" y="920" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m19" value="Reviews data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objMongo" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="950" as="sourcePoint"/>
+            <mxPoint x="620" y="950" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m20" value="Show reviews table" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objBackend" target="objFrontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="980" as="sourcePoint"/>
+            <mxPoint x="435" y="980" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a7" value="Delete review" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="990" width="90" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="m21" value="POST /admin/delete-review" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objFrontend" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="1015" as="sourcePoint"/>
+            <mxPoint x="620" y="1015" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m22" value="Delete review record" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objBackend" target="objMongo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="1040" as="sourcePoint"/>
+            <mxPoint x="795" y="1040" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="a8" value="Click logout" style="text;html=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1110" width="90" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="m23" value="Logout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="actorAdmin" target="objFrontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="1135" as="sourcePoint"/>
+            <mxPoint x="435" y="1135" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m24" value="Terminate session" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="objFrontend" target="objBackend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="1160" as="sourcePoint"/>
+            <mxPoint x="620" y="1160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m25" value="Session ended" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="objBackend" target="objFrontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="1185" as="sourcePoint"/>
+            <mxPoint x="435" y="1185" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

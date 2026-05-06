@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net" modified="2026-04-15T08:25:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="dfd-level0" name="DFD Level 0">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="DFD Level 0: FakeReviewAI System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="315" y="25" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="frame" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="150" y="85" width="830" height="580" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="system" value="FakeReviewAI" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="500" y="285" width="140" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="database" value="Database" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="235" y="120" width="110" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="history" value="History&#xa;Module" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="95" width="110" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="otp" value="OTP / SMTP&#xa;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="775" y="120" width="110" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="administrator" value="Administrator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdecec;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="165" y="330" width="95" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="analytics" value="ML / Analytics&#xa;Engine" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="865" y="330" width="95" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="student" value="User&#xa;(Reviewer)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eaf2ff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="790" y="575" width="95" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="google" value="Google OAuth&#xa;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="255" y="575" width="105" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="Store / Fetch Data" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="system" target="database">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="Users / Reviews / Logs" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="database" target="system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="History Request" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="system" target="history">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="History Data" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="history" target="system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="OTP / Alerts" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="system" target="otp">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="Delivery Status" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="otp" target="system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="Manage" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="administrator" target="system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="Reports" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="system" target="administrator">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="Prediction Request" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="system" target="analytics">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="Prediction Result" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="analytics" target="system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" value="Analysis / Dashboard / Auth" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="system" target="student">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" value="Login / Review / History" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="student" target="system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e13" value="Verify Token" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="system" target="google">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e14" value="Google Profile" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#000000;" edge="1" parent="1" source="google" target="system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

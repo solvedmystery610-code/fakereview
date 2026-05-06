@@ -1,0 +1,168 @@
+<mxfile host="Electron" type="device">
+  <diagram id="dfd_level1_final" name="FakeReview DFD Level 1">
+    <mxGraphModel dx="1600" dy="2500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="DFD Level 1: FakeReview Analysis Workflow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- EXTERNAL ENTITIES (Rectangles) -->
+        <mxCell id="ent_user" value="User (Reviewer)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent_admin" value="Administrator" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent_smtp" value="SMTP / Mail Server" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- PROCESSES (Circles 1.0 - 8.0) -->
+
+        <!-- 1.0 Account Authentication -->
+        <mxCell id="p1" value="1.0&lt;br&gt;Account&lt;br&gt;Authentication" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="300" y="180" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 2.0 User Dashboard -->
+        <mxCell id="p2" value="2.0&lt;br&gt;Dashboard&lt;br&gt;Management" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="550" y="180" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 3.0 Batch Upload -->
+        <mxCell id="p3" value="3.0&lt;br&gt;Batch File&lt;br&gt;Ingestion" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="550" y="380" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 4.0 Text Preprocessing -->
+        <mxCell id="p4" value="4.0&lt;br&gt;Preprocessing&lt;br&gt;&amp; Parsing" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="800" y="280" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 5.0 ML Prediction -->
+        <mxCell id="p5" value="5.0&lt;br&gt;ML Pattern&lt;br&gt;Detection" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="450" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 6.0 Similarity Check -->
+        <mxCell id="p6" value="6.0&lt;br&gt;Simhash&lt;br&gt;Comparison" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="650" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 7.0 Report Generation -->
+        <mxCell id="p7" value="7.0&lt;br&gt;Report &amp;&lt;br&gt;Analytics" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="800" y="550" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 8.0 Admin Admin Moderation -->
+        <mxCell id="p8" value="8.0&lt;br&gt;Admin Panel&lt;br&gt;Moderation" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="300" y="880" width="100" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- DATA STORES (Parallel Lines) -->
+        <mxCell id="ds_users" value="User Database" style="shape=partialRectangle;right=0;left=0;html=1;whiteSpace=wrap;align=center;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ds_reviews" value="Review Records" style="shape=partialRectangle;right=0;left=0;html=1;whiteSpace=wrap;align=center;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="800" y="100" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ds_logs" value="Admin Audit Logs" style="shape=partialRectangle;right=0;left=0;html=1;whiteSpace=wrap;align=center;strokeWidth=2;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1050" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- DATA FLOWS (With Mandatory Value Labels) -->
+
+        <!-- User to 1.0 -->
+        <mxCell id="f1" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ent_user" target="p1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_f1" value="Login Credentials" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f1"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 1.0 to SMTP -->
+        <mxCell id="f2" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p1" target="ent_smtp">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="350" y="100" /><mxPoint x="1080" y="100" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f2" value="Request OTP Dispatch" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f2"><mxGeometry x="0" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 1.0 to 2.0 (Process to Process) -->
+        <mxCell id="f3" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_f3" value="Verified Session Token" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f3"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- User to 3.0 -->
+        <mxCell id="f4" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="ent_user" target="p3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="120" y="450" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f4" value="CSV Batch File" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f4"><mxGeometry x="-0.2" relative="1" as="geometry"><mxPoint y="10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 2.0 to 4.0 (Process to Process) -->
+        <mxCell id="f5" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="p2" target="p4">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="750" y="230" /><mxPoint x="750" y="300" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f5" value="Captured Review Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f5"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 3.0 to 4.0 (Process to Process) -->
+        <mxCell id="f6" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="p3" target="p4">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="750" y="430" /><mxPoint x="750" y="360" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f6" value="Extracted File Data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f6"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 4.0 to 5.0 (Process to Process) -->
+        <mxCell id="f7" value="" style="endArrow=classic;html=1;exitX=0.9;exitY=0.9;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p4" target="p5">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="950" y="370" /><mxPoint x="950" y="500" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f7" value="Tokenized Text Vectors" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f7"><mxGeometry x="-0.2" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 4.0 to 6.0 (Process to Process) -->
+        <mxCell id="f8" value="" style="endArrow=classic;html=1;exitX=0.95;exitY=0.85;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p4" target="p6">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="980" y="365" /><mxPoint x="980" y="700" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f8" value="Fingerprint Seed" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f8"><mxGeometry x="-0.3" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 5.0 to 7.0 (Process to Process) -->
+        <mxCell id="f9" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=0.9;entryY=0.1;entryDx=0;entryDy=0;" edge="1" parent="1" source="p5" target="p7">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="950" y="520" /><mxPoint x="950" y="560" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f9" value="Prediction Probability" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f9"><mxGeometry x="0.1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 6.0 to 7.0 (Process to Process) -->
+        <mxCell id="f10" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="p6" target="p7">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="980" y="700" /><mxPoint x="980" y="620" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f10" value="Similarity Matches" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f10"><mxGeometry x="0.1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 7.0 to User -->
+        <mxCell id="f11" value="" style="endArrow=classic;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="p7" target="ent_user">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="815" y="800" /><mxPoint x="120" y="800" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_f11" value="Final Comprehensive Report" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f11"><mxGeometry x="0" relative="1" as="geometry"><mxPoint y="10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- Admin to 8.0 -->
+        <mxCell id="f12" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ent_admin" target="p8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_f12" value="Moderation Policies" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f12"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 8.0 to Logs -->
+        <mxCell id="f13" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p8" target="ds_logs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_f13" value="Updated Audit Actions" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="f13"><mxGeometry x="0.1" relative="1" as="geometry"><mxPoint x="10" as="offset" /></mxGeometry></mxCell>
+
+        <!-- Datastore Connections -->
+        <mxCell id="f14" edge="1" parent="1" source="p1" target="ds_users" style="endArrow=classic;html=1;dashed=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f15" edge="1" parent="1" source="p7" target="ds_reviews" style="endArrow=classic;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="850" y="240" /></Array></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

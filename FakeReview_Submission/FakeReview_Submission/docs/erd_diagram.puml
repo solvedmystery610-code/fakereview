@@ -1,0 +1,131 @@
+@startuml
+!theme plain
+skinparam linetype ortho
+skinparam shadowing false
+skinparam class {
+    BackgroundColor White
+    ArrowColor #2c3e50
+    BorderColor #2c3e50
+}
+
+title FakeReview - Comprehensive MongoDB ERD
+
+entity "Users" as users {
+    * _id : ObjectId <<PK>>
+    --
+    * username : String <<Unique>>
+    auth_provider : String
+    display_name : String
+    email_verified : Boolean
+    is_admin : Boolean
+    role : String
+    status : String
+    plan : String
+    password : String
+    google_sub : String
+    google_picture : String
+    login_count : Integer
+    last_login_at : Date
+    last_activity_at : String
+    email_otp_count : Integer
+    email_otp_sent : String
+    email_otp_expires : Date
+    email_otp_hash : String
+    login_otp_count : Integer
+    login_otp_sent : String
+    login_otp_expires : Date
+    login_otp_hash : String
+    usage_limit_reset_at : Date
+    created_at : Date
+}
+
+entity "Audit_Logs" as audit_logs {
+    * _id : ObjectId <<PK>>
+    --
+    * username : String <<FK>>
+    action : String
+    actor : String
+    target : String
+    ip : String
+    timestamp : String
+    status : String
+    success : Boolean
+    details : Object
+    plan : String
+    usage_limit : Integer
+    otp_sent : Boolean
+    email_verified : Boolean
+}
+
+entity "Reviews" as reviews {
+    * _id : ObjectId <<PK>>
+    --
+    * username : String <<FK>>
+    review_text : String
+    result : String
+    confidence : Double
+    prob_fake : Double
+    sentiment : String
+    platform : String
+    rating : Integer
+    category : String
+    language : String
+    model : String
+    word_count : Integer
+    signals : Object
+    simhash : String
+    timestamp : String
+}
+
+entity "Upload_Logs" as upload_logs {
+    * _id : ObjectId <<PK>>
+    --
+    * username : String <<FK>>
+    file_name : String
+    file_size : Integer
+    source : String
+    status : String
+    error : String
+    timestamp : String
+}
+
+entity "Download_Logs" as download_logs {
+    * _id : ObjectId <<PK>>
+    --
+    * username : String <<FK>>
+    file_name : String
+    file_type : String
+    source : String
+    timestamp : String
+}
+
+entity "Feedback" as feedback {
+    * _id : ObjectId <<PK>>
+    --
+    * username : String <<FK>>
+    message : String
+    rating : Integer
+    timestamp : String
+}
+
+entity "Request_Logs" as request_logs {
+    * _id : ObjectId <<PK>>
+    --
+    * username : String <<FK>>
+    endpoint : String
+    method : String
+    status_code : Integer
+    success : Boolean
+    duration_ms : Double
+    timestamp : String
+}
+
+' Relationships
+users ||--o{ reviews : "manages"
+users ||--o{ upload_logs : "uploads"
+users ||--o{ download_logs : "downloads"
+users ||--o{ audit_logs : "triggers"
+users ||--o{ feedback : "provides"
+users ||--o{ request_logs : "makes"
+
+@enduml

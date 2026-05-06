@@ -1,0 +1,285 @@
+<mxfile host="app.diagrams.net" modified="2026-04-15T23:18:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="user-sequence-xml" name="User Sequence Diagram">
+    <mxGraphModel dx="1600" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="head1" value="FOR USERS:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=20;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="220" y="34" width="190" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="head2" value="PLR USER SEQUENCE" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontStyle=1;fontSize=11;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="330" y="88" width="240" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="230" y="118" width="24" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="frontend" value="Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="315" y="132" width="56" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="backend" value="Backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="425" y="132" width="56" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mail" value="Mail (SMTP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Times New Roman;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="532" y="132" width="64" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="db" value="MongoDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="645" y="128" width="50" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lifeU" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#a0a0a0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="242" y="172" width="1" height="1160" as="geometry"/>
+        </mxCell>
+        <mxCell id="lifeF" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#a0a0a0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="343" y="152" width="1" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lifeB" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#a0a0a0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="453" y="152" width="1" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lifeM" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#a0a0a0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="564" y="152" width="1" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lifeD" value="" style="shape=line;strokeWidth=1;html=1;strokeColor=#a0a0a0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="152" width="1" height="1180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sec1" value="1. USER LOGIN / SIGNUP WITH OTP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;fontFamily=Times New Roman;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="188" width="500" height="210" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec2" value="2. EMAIL VERIFICATION FLOW" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;fontFamily=Times New Roman;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="408" width="500" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec3" value="3. REVIEW ANALYSIS OPERATION" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;fontFamily=Times New Roman;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="538" width="500" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec4" value="4. DASHBOARD / HISTORY ACCESS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;fontFamily=Times New Roman;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="718" width="500" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec5" value="5. FEEDBACK / TRACKING / LOGOUT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;align=left;spacingLeft=8;fontFamily=Times New Roman;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="878" width="500" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl1" value="Enter mail &amp; password" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="135" y="218" width="105" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Login / signup" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="user" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="240" as="sourcePoint"/>
+            <mxPoint x="343" y="240" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="Request OTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="266" as="sourcePoint"/>
+            <mxPoint x="453" y="266" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a3" value="Validate user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="292" as="sourcePoint"/>
+            <mxPoint x="670" y="292" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a4" value="Send OTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="mail">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="318" as="sourcePoint"/>
+            <mxPoint x="564" y="318" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5" value="OTP sent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="mail" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="564" y="344" as="sourcePoint"/>
+            <mxPoint x="453" y="344" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl2" value="Enter OTP" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="174" y="340" width="60" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Submit OTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="user" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="362" as="sourcePoint"/>
+            <mxPoint x="343" y="362" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a7" value="Verify OTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="388" as="sourcePoint"/>
+            <mxPoint x="453" y="388" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a8" value="Check record" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="414" as="sourcePoint"/>
+            <mxPoint x="670" y="414" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a9" value="Login success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="438" as="sourcePoint"/>
+            <mxPoint x="343" y="438" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="lbl3" value="Request verification" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="142" y="438" width="94" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="Verify email" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="user" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="460" as="sourcePoint"/>
+            <mxPoint x="343" y="460" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2" value="Request verify OTP / link" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="486" as="sourcePoint"/>
+            <mxPoint x="453" y="486" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b3" value="Update token" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="510" as="sourcePoint"/>
+            <mxPoint x="670" y="510" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="lbl4" value="Enter review text" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="154" y="572" width="82" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="Analyze review" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="user" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="594" as="sourcePoint"/>
+            <mxPoint x="343" y="594" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c2" value="POST review" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="620" as="sourcePoint"/>
+            <mxPoint x="453" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3" value="Fetch user data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="646" as="sourcePoint"/>
+            <mxPoint x="670" y="646" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c4" value="Analyze content" style="edgeStyle=loopEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="670" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="490" y="670"/>
+              <mxPoint x="520" y="670"/>
+              <mxPoint x="520" y="692"/>
+              <mxPoint x="453" y="692"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5" value="Store result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="696" as="sourcePoint"/>
+            <mxPoint x="670" y="696" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c6" value="Show result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="722" as="sourcePoint"/>
+            <mxPoint x="343" y="722" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl5" value="Download report" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="160" y="726" width="80" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="c7" value="Track download" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="748" as="sourcePoint"/>
+            <mxPoint x="453" y="748" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="lbl6" value="Open dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="165" y="754" width="75" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Get dashboard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="user" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="782" as="sourcePoint"/>
+            <mxPoint x="343" y="782" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d2" value="Fetch stats" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="808" as="sourcePoint"/>
+            <mxPoint x="453" y="808" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d3" value="Read stats" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="834" as="sourcePoint"/>
+            <mxPoint x="670" y="834" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl7" value="Open history" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="174" y="836" width="65" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="d4" value="Get history" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="856" as="sourcePoint"/>
+            <mxPoint x="453" y="856" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="lbl8" value="Submit feedback" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="161" y="914" width="78" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="e29" value="Send feedback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="user" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="936" as="sourcePoint"/>
+            <mxPoint x="343" y="936" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e30" value="POST feedback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="962" as="sourcePoint"/>
+            <mxPoint x="453" y="962" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e31" value="Save feedback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="988" as="sourcePoint"/>
+            <mxPoint x="670" y="988" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl9" value="Upload file" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="181" y="988" width="55" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="e32" value="Track upload" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="1010" as="sourcePoint"/>
+            <mxPoint x="453" y="1010" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e33" value="Save upload log" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="453" y="1036" as="sourcePoint"/>
+            <mxPoint x="670" y="1036" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl10" value="Logout" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="195" y="1036" width="40" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="e34" value="Logout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="user" target="frontend">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="1058" as="sourcePoint"/>
+            <mxPoint x="343" y="1058" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e35" value="Session closed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;fontFamily=Times New Roman;fontSize=9;" edge="1" parent="1" source="frontend" target="user">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="343" y="1084" as="sourcePoint"/>
+            <mxPoint x="242" y="1084" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

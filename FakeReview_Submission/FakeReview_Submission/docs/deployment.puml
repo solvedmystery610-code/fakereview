@@ -1,0 +1,52 @@
+@startuml
+skinparam node {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam component {
+    BackgroundColor White
+    BorderColor Black
+}
+
+node "Client Device" as ClientDevice {
+  component "Web Browser" as WebBrowser
+}
+
+node "Frontend Server" as FrontendServer {
+  component "Vite / React Frontend" as ReactFrontend
+}
+
+node "Auth Server" as AuthServer {
+  component "OTP Authentication Service" as OTPService
+}
+
+node "Application Server" as AppServer {
+  component "Flask Backend API" as FlaskAPI
+  component "Review Analytics Logic" as ReviewAnalytics
+  component "Data Parsing Module" as DataParsing
+  component "User Activity Tracker" as ActivityTracker
+}
+
+node "Database Server" as DatabaseServer {
+  database "MongoDB Engine" as Mongo
+  component "Users, Reviews, Logs Collections" as Collections
+}
+
+node "Review Analysis Engine" as MLEngine {
+  component "Machine Learning Models" as MLModels
+  component "Simhash Duplicate Detection" as Simhash
+}
+
+node "Mail Server" as MailServer {
+  component "SMTP / EmailJS Provider" as SMTPProvider
+}
+
+ClientDevice -right-> FrontendServer : HTTPS
+FrontendServer -down-> AppServer : API Calls
+AppServer -right-> AuthServer : Authentication
+AppServer -right-> DatabaseServer : Read / Write Data
+AppServer -right-> MLEngine : Analyze / Detect
+AppServer -right-> MailServer : Send OTP / Notifications
+
+@enduml
+

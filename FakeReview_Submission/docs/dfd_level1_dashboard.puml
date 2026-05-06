@@ -1,0 +1,30 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam circle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "User" as User
+circle "1.0\nVerify Session" as P1
+circle "2.0\nRequest Metrics" as P2
+circle "3.0\nRun Analytics" as P3
+circle "4.0\nFormat Cards" as P4
+circle "5.0\nRender UI" as P5
+
+queue "Analytics Collection (MongoDB)" as DB
+rectangle "Settings Module" as Settings
+
+User -> P1 : Open Dashboard
+P1 -> P2 : Validated Token
+P2 -> P3 : Fetch Params
+P3 <--> DB : Query Aggregations
+P3 -> P4 : Aggregated Raw Data
+P3 -> Settings : Update Profile Stats
+P4 -> P5 : Parsed JSON
+P5 -> User : Show Dynamic Metrics
+
+@enduml

@@ -1,0 +1,88 @@
+@startuml
+skinparam class {
+  BackgroundColor #f9f9f9
+  ArrowColor #333333
+  BorderColor #666666
+}
+
+title FakeReview - System Class Diagram
+
+class AuthManager {
+  +otp_code: string
+  +session_token: string
+  +sendOTP()
+  +verifyOTP()
+  +validateGoogleOAuth()
+}
+
+class User {
+  +id: int
+  +name: string
+  +email: string
+  +user_type: string
+  +created_at: timestamp
+  +login()
+  +logout()
+  +register()
+}
+
+class Admin {
+  +id: int
+  +name: string
+  +email: string
+  +admin_key: string
+  +manageUsers()
+  +deleteReviews()
+  +viewAuditLogs()
+  +replyToFeedback()
+}
+
+class FeedbackMessage {
+  +id: int
+  +user_name: string
+  +email: string
+  +subject: string
+  +message: text
+  +status: string
+  +submitFeedback()
+  +updateStatus()
+}
+
+class ReviewData {
+  +id: int
+  +filename: string
+  +file_path: string
+  +upload_date: datetime
+  +is_batch: boolean
+  +uploadCSV()
+  +parseData()
+  +deleteRecord()
+}
+
+class FakeReviewEngine {
+  +id: int
+  +analysis_verdict: string
+  +similarity_score: float
+  +engine_type: string
+  +runNLP()
+  +simhashCompare()
+  +generateReport()
+}
+
+class MLModelEngine {
+  +model_version: string
+  +threshold: float
+  +loadModel()
+  +predict()
+  +formatOutput()
+}
+
+' Relationships exactly as per reference image
+AuthManager -right-> User : <<authenticates>>
+User "1" -- "0..*" FeedbackMessage : (Sends)
+User "1" -- "0..*" ReviewData : (Uploads)
+Admin "1" -- "0..*" FeedbackMessage : (Manages)
+ReviewData "0..*" -- "1" FakeReviewEngine : (Analyzed By)
+FakeReviewEngine -- MLModelEngine : Uses
+
+@enduml

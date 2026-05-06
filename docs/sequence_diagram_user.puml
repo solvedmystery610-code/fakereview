@@ -1,0 +1,118 @@
+@startuml
+hide footbox
+skinparam sequenceMessageAlign center
+skinparam shadowing false
+skinparam BackgroundColor #ffffff
+
+title FakeReview User Workflow
+
+actor User
+participant Frontend
+participant Backend
+participant SMTP
+participant MLEngine
+database MongoDB
+participant "Google OAuth" as OTP
+
+== 1. Authentication ==
+
+alt Option A (OTP Login)
+    User -> Frontend : Enter Email
+    activate Frontend
+    Frontend -> Backend : Request OTP
+    deactivate Frontend
+    
+    activate Backend
+    Backend -> SMTP : Send OTP Mail
+    deactivate Backend
+    
+    activate SMTP
+    SMTP -> User : Deliver OTP
+    deactivate SMTP
+    
+    User -> Frontend : Submit OTP
+    activate Frontend
+    Frontend -> Backend : Verify
+    deactivate Frontend
+    
+    activate Backend
+    Backend -> OTP : Check OTP Hash
+    activate OTP
+    OTP -> MongoDB : Find User
+    activate MongoDB
+    MongoDB -> OTP : User Found
+    deactivate MongoDB
+    OTP -> Backend : Valid OTP
+    deactivate OTP
+    Backend -> Frontend : Login Success
+    deactivate Backend
+end
+
+alt Option B (Google Auth)
+    User -> Frontend : Click Login
+    activate Frontend
+    Frontend -> Backend : Google Auth
+    deactivate Frontend
+    
+    activate Backend
+    Backend -> Frontend : Redirect
+    deactivate Backend
+    
+    activate Frontend
+    Frontend -> User : Gmail UI
+    deactivate Frontend
+    
+    activate Backend
+    Backend -> Backend : Token Check
+    Backend -> Frontend : Login Success
+    deactivate Backend
+end
+
+== 2. Analysis Workflow ==
+
+User -> Frontend : Submit Review
+activate Frontend
+Frontend -> Backend : POST /analyze
+deactivate Frontend
+
+activate Backend
+Backend -> MLEngine : Extract Features
+activate MLEngine
+MLEngine -> Backend : Predictions
+deactivate MLEngine
+
+Backend -> MongoDB : Save Review
+activate MongoDB
+MongoDB -> Backend : Success
+deactivate MongoDB
+
+Backend -> Frontend : Display Result
+deactivate Backend
+
+== 3. Dashboard & History ==
+
+User -> Frontend : Open Dashboard
+activate Frontend
+Frontend -> Backend : GET /dashboard
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Fetch Stats
+activate MongoDB
+MongoDB -> Backend : Data
+deactivate MongoDB
+Backend -> Frontend : Show Analytics
+deactivate Backend
+
+== 4. Logout ==
+
+User -> Frontend : Click Logout
+activate Frontend
+Frontend -> Backend : Destroy Session
+deactivate Frontend
+
+activate Backend
+Backend -> Frontend : Redirect to Login
+deactivate Backend
+
+@enduml

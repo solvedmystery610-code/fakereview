@@ -1,0 +1,75 @@
+<mxfile host="Electron" type="device">
+  <diagram id="dfd_level1_reg" name="DFD Level 1 - Registration">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="DFD Level 1:&lt;br&gt;User Registration System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent_user" value="User" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1" value="1.0&lt;br&gt;Input&lt;br&gt;Validation" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="120" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p2" value="2.0&lt;br&gt;Hash&lt;br&gt;Password" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p3" value="3.0&lt;br&gt;Generate&lt;br&gt;OTP" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="120" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p4" value="4.0&lt;br&gt;Verify&lt;br&gt;OTP Code" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="320" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p5" value="5.0&lt;br&gt;Save&lt;br&gt;User" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="320" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent_smtp" value="EmailJS / SMTP&lt;br&gt;Server" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ds_users" value="Users Collection (MongoDB)" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=none;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="340" width="160" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Flows -->
+        <mxCell id="flow_user_p1" edge="1" parent="1" source="ent_user" target="p1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_user_p1" value="Signup Details" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_user_p1"><mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_p1_ds" edge="1" parent="1" source="p1" target="ds_users"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_p1_ds" value="Check Existence" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_p1_ds"><mxGeometry x="-0.2" y="12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_p1_p2" edge="1" parent="1" source="p1" target="p2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_p1_p2" value="Valid Data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_p1_p2"><mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_p2_p3" edge="1" parent="1" source="p2" target="p3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_p2_p3" value="Hashed Info" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_p2_p3"><mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_p3_smtp" edge="1" parent="1" source="p3" target="ent_smtp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_p3_smtp" value="Dispatch OTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_p3_smtp"><mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_p3_p4" edge="1" parent="1" source="p3" target="p4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_p3_p4" value="Await Action" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_p3_p4"><mxGeometry x="0.2" y="14" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_user_p4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ent_user" target="p4"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="80" y="360" /></Array></mxGeometry></mxCell>
+        <mxCell id="lbl_user_p4" value="Input OTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_user_p4"><mxGeometry x="-0.2" y="-10" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_p4_p5" edge="1" parent="1" source="p4" target="p5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_p4_p5" value="Confirmed" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_p4_p5"><mxGeometry x="-0.1" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="flow_p5_ds" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p5" target="ds_users"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="760" y="440" /><mxPoint x="380" y="440" /><mxPoint x="380" y="360" /></Array></mxGeometry></mxCell>
+        <mxCell id="lbl_p5_ds" value="Insert Record" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow_p5_ds"><mxGeometry x="-0.1" y="-10" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

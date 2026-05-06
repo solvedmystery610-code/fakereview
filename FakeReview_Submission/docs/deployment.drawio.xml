@@ -1,0 +1,137 @@
+<mxfile host="Electron" modified="" agent="Mozilla/5.0" etag="" version="21.2.8" type="device">
+  <diagram id="fakereview-deployment" name="Deployment Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client Device Outer -->
+        <mxCell id="client_outer" value="Client Device" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="180" height="100" as="geometry" />
+        </mxCell>
+        <!-- Client Device Inner -->
+        <mxCell id="client_inner" value="Web Browser" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="client_outer">
+          <mxGeometry x="20" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Server Outer -->
+        <mxCell id="frontend_outer" value="Frontend Server" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="220" height="100" as="geometry" />
+        </mxCell>
+        <!-- Frontend Server Inner -->
+        <mxCell id="frontend_inner" value="Vite / React Frontend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="frontend_outer">
+          <mxGeometry x="20" y="40" width="180" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Auth Server Outer -->
+        <mxCell id="auth_outer" value="Auth Server" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="220" height="100" as="geometry" />
+        </mxCell>
+        <!-- Auth Server Inner -->
+        <mxCell id="auth_inner" value="OTP Authentication Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="auth_outer">
+          <mxGeometry x="20" y="40" width="180" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Application Server Outer -->
+        <mxCell id="app_outer" value="Application Server" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="220" width="220" height="260" as="geometry" />
+        </mxCell>
+        <!-- Application Server Inner 1 -->
+        <mxCell id="app_inner1" value="Flask Backend API" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="app_outer">
+          <mxGeometry x="20" y="40" width="180" height="40" as="geometry" />
+        </mxCell>
+        <!-- Application Server Inner 2 -->
+        <mxCell id="app_inner2" value="Review Analytics Logic" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="app_outer">
+          <mxGeometry x="20" y="90" width="180" height="40" as="geometry" />
+        </mxCell>
+        <!-- Application Server Inner 3 -->
+        <mxCell id="app_inner3" value="Data Parsing Module" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="app_outer">
+          <mxGeometry x="20" y="140" width="180" height="40" as="geometry" />
+        </mxCell>
+        <!-- Application Server Inner 4 -->
+        <mxCell id="app_inner4" value="User Activity Tracker" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="app_outer">
+          <mxGeometry x="20" y="190" width="180" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Database Server Outer -->
+        <mxCell id="db_outer" value="Database Server" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="160" width="220" height="150" as="geometry" />
+        </mxCell>
+        <!-- Database Server Inner 1 -->
+        <mxCell id="db_inner1" value="MongoDB Engine" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="db_outer">
+          <mxGeometry x="70" y="30" width="80" height="60" as="geometry" />
+        </mxCell>
+        <!-- Database Server Inner 2 -->
+        <mxCell id="db_inner2" value="Users, Reviews, Logs Collections" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="db_outer">
+          <mxGeometry x="10" y="100" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- ML Server Outer -->
+        <mxCell id="ml_outer" value="Review Analysis Engine" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="330" width="220" height="140" as="geometry" />
+        </mxCell>
+        <!-- ML Server Inner 1 -->
+        <mxCell id="ml_inner1" value="Machine Learning Models" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="ml_outer">
+          <mxGeometry x="20" y="40" width="180" height="35" as="geometry" />
+        </mxCell>
+        <!-- ML Server Inner 2 -->
+        <mxCell id="ml_inner2" value="Simhash Duplicate Detection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="ml_outer">
+          <mxGeometry x="20" y="85" width="180" height="35" as="geometry" />
+        </mxCell>
+        
+        <!-- Mail Server Outer -->
+        <mxCell id="mail_outer" value="Mail Server" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="490" width="220" height="100" as="geometry" />
+        </mxCell>
+        <!-- Mail Server Inner -->
+        <mxCell id="mail_inner" value="SMTP / EmailJS Provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="mail_outer">
+          <mxGeometry x="20" y="40" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0;entryY=0.5;" edge="1" parent="1" source="client_outer" target="frontend_outer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label1" value="HTTPS" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge1">
+          <mxGeometry x="-0.2" y="2" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="frontend_outer" target="app_outer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label2" value="API Calls" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge2">
+          <mxGeometry x="-0.2" y="2" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.15;entryX=0;entryY=0.5;" edge="1" parent="1" source="app_outer" target="auth_outer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label3" value="Authentication" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge3">
+          <mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="app_outer" target="db_outer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label4" value="Read / Write Data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge4">
+          <mxGeometry x="-0.1" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;" edge="1" parent="1" source="app_outer" target="ml_outer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label5" value="Generate Recommendations" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge5">
+          <mxGeometry x="-0.1" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="app_outer" target="mail_outer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label6" value="Send OTP / Notifications" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge6">
+          <mxGeometry x="-0.5" y="10" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

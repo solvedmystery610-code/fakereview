@@ -1,0 +1,151 @@
+@startuml
+hide footbox
+skinparam sequenceMessageAlign center
+skinparam BackgroundColor #ffffff
+
+title FakeReview Admin Workflow
+
+actor Admin
+participant Frontend
+participant Backend
+database MongoDB
+
+== 1. Admin Authentication ==
+
+Admin -> Frontend : Enter Credentials (ID/Pass)
+activate Frontend
+Frontend -> Backend : Validate Admin
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Verify Admin Role
+deactivate Backend
+
+activate MongoDB
+MongoDB -> Backend : Auth Success
+deactivate MongoDB
+
+activate Backend
+Backend -> Frontend : Login Approved
+deactivate Backend
+
+== 2. Dashboard & Audit Logs ==
+
+Admin -> Frontend : View Dashboard
+activate Frontend
+Frontend -> Backend : Request Platform Stats
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Fetch Stats Data
+deactivate Backend
+
+activate MongoDB
+MongoDB -> Backend : Stats Result
+deactivate MongoDB
+
+activate Backend
+Backend -> Frontend : Display Overview
+deactivate Backend
+
+Admin -> Frontend : Access Audit Logs
+activate Frontend
+Frontend -> Backend : GET /api/admin/audit
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Query Audit Collection
+deactivate Backend
+
+activate MongoDB
+MongoDB -> Backend : Audit Data
+deactivate MongoDB
+
+activate Backend
+Backend -> Frontend : Show Logs Table
+deactivate Backend
+
+== 3. Feedback Management ==
+
+Admin -> Frontend : Review Feedbacks
+activate Frontend
+Frontend -> Backend : GET /api/admin/feedback
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Fetch User Feedbacks
+deactivate Backend
+
+activate MongoDB
+MongoDB -> Backend : Feedback List
+deactivate MongoDB
+
+activate Backend
+Backend -> Frontend : Show Feedbacks
+deactivate Backend
+
+Admin -> Frontend : Reply / Delete Message
+activate Frontend
+Frontend -> Backend : POST /api/admin/feedback/action
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Update Feedback DB
+deactivate Backend
+
+activate MongoDB
+MongoDB -> Backend : DB Updated
+deactivate MongoDB
+
+activate Backend
+Backend -> Frontend : Action Successful
+deactivate Backend
+
+== 4. User Moderation (Manage Users) ==
+
+Admin -> Frontend : Search Suspicious Users
+activate Frontend
+Frontend -> Backend : GET /api/admin/users
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Fetch High-Risk Profiles
+deactivate Backend
+
+activate MongoDB
+MongoDB -> Backend : User List
+deactivate MongoDB
+
+activate Backend
+Backend -> Frontend : Show User Table
+deactivate Backend
+
+Admin -> Frontend : Suspend / Flag Account
+activate Frontend
+Frontend -> Backend : PATCH /api/admin/user/suspend
+deactivate Frontend
+
+activate Backend
+Backend -> MongoDB : Update User Status
+deactivate Backend
+
+activate MongoDB
+MongoDB -> Backend : Status Updated
+deactivate MongoDB
+
+activate Backend
+Backend -> Frontend : User Managed Successfully
+deactivate Backend
+
+== 5. Logout ==
+
+Admin -> Frontend : Logout
+activate Frontend
+Frontend -> Backend : Clear Admin Session
+deactivate Frontend
+
+activate Backend
+Backend -> Frontend : Session Terminated
+deactivate Backend
+
+@enduml

@@ -1,0 +1,159 @@
+<mxfile host="Electron" type="device">
+  <diagram id="package_diagram" name="Package Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Frontend Package (Light Blue) -->
+        <mxCell id="pkg_frontend" value="React Frontend Components" style="shape=folder;fontStyle=1;tabWidth=180;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="350" y="40" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="fr_1" value="&amp;lt;&amp;lt;view&amp;gt;&amp;gt;&lt;br&gt;Landing Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_frontend">
+          <mxGeometry x="40" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fr_2" value="&amp;lt;&amp;lt;view&amp;gt;&amp;gt;&lt;br&gt;User Dashboard" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_frontend">
+          <mxGeometry x="220" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fr_3" value="&amp;lt;&amp;lt;view&amp;gt;&amp;gt;&lt;br&gt;Admin Panel" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_frontend">
+          <mxGeometry x="40" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fr_4" value="&amp;lt;&amp;lt;view&amp;gt;&amp;gt;&lt;br&gt;Review Analysis Views" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_frontend">
+          <mxGeometry x="220" y="90" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Analysis Package (Pink) -->
+        <mxCell id="pkg_analysis" value="Review Analysis System" style="shape=folder;fontStyle=1;tabWidth=160;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="an_1" value="&amp;lt;&amp;lt;process&amp;gt;&amp;gt;&lt;br&gt;Simhash Detector" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_analysis">
+          <mxGeometry x="30" y="40" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="an_2" value="&amp;lt;&amp;lt;process&amp;gt;&amp;gt;&lt;br&gt;ML Predictor" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_analysis">
+          <mxGeometry x="30" y="85" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="an_3" value="&amp;lt;&amp;lt;process&amp;gt;&amp;gt;&lt;br&gt;Text Normalizer" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_analysis">
+          <mxGeometry x="30" y="130" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Core Package (Green) -->
+        <mxCell id="pkg_core" value="Flask Backend Core" style="shape=folder;fontStyle=1;tabWidth=140;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="340" y="260" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="cr_1" value="&amp;lt;&amp;lt;system&amp;gt;&amp;gt;&lt;br&gt;Review API Endpoints" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_core">
+          <mxGeometry x="30" y="40" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="cr_2" value="&amp;lt;&amp;lt;process&amp;gt;&amp;gt;&lt;br&gt;Analytics Tracker" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_core">
+          <mxGeometry x="30" y="85" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="cr_3" value="&amp;lt;&amp;lt;system&amp;gt;&amp;gt;&lt;br&gt;Admin Config Service" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_core">
+          <mxGeometry x="30" y="130" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Database Package (Purple) -->
+        <mxCell id="pkg_db" value="Database Layer" style="shape=folder;fontStyle=1;tabWidth=120;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="610" y="260" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="db_1" value="&amp;lt;&amp;lt;database&amp;gt;&amp;gt;&lt;br&gt;MongoDB Connection" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_db">
+          <mxGeometry x="30" y="40" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="db_2" value="&amp;lt;&amp;lt;database&amp;gt;&amp;gt;&lt;br&gt;Users Document" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_db">
+          <mxGeometry x="30" y="85" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="db_3" value="&amp;lt;&amp;lt;database&amp;gt;&amp;gt;&lt;br&gt;Reviews Collection" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_db">
+          <mxGeometry x="30" y="130" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Auth Package (Light Blue) -->
+        <mxCell id="pkg_auth" value="Authentication Layer" style="shape=folder;fontStyle=1;tabWidth=140;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="870" y="260" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="au_1" value="&amp;lt;&amp;lt;process&amp;gt;&amp;gt;&lt;br&gt;OTP Generator" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_auth">
+          <mxGeometry x="30" y="40" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="au_2" value="&amp;lt;&amp;lt;system&amp;gt;&amp;gt;&lt;br&gt;Session Manager" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_auth">
+          <mxGeometry x="30" y="85" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="au_3" value="&amp;lt;&amp;lt;system&amp;gt;&amp;gt;&lt;br&gt;Custom Login Flow" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_auth">
+          <mxGeometry x="30" y="130" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Utils Package (Yellow) -->
+        <mxCell id="pkg_utils" value="Parsing Utilities" style="shape=folder;fontStyle=1;tabWidth=130;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="60" y="490" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ut_1" value="&amp;lt;&amp;lt;process&amp;gt;&amp;gt;&lt;br&gt;Token Extractor" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_utils">
+          <mxGeometry x="30" y="40" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="ut_2" value="&amp;lt;&amp;lt;process&amp;gt;&amp;gt;&lt;br&gt;Hash Matcher" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_utils">
+          <mxGeometry x="30" y="85" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- External Package (Yellow) -->
+        <mxCell id="pkg_external" value="External Services" style="shape=folder;fontStyle=1;tabWidth=130;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="340" y="490" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ex_1" value="&amp;lt;&amp;lt;service&amp;gt;&amp;gt;&lt;br&gt;SMTP Mail Server" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_external">
+          <mxGeometry x="30" y="40" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ex_2" value="&amp;lt;&amp;lt;service&amp;gt;&amp;gt;&lt;br&gt;EmailJS Provider" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_external">
+          <mxGeometry x="30" y="80" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ex_3" value="&amp;lt;&amp;lt;service&amp;gt;&amp;gt;&lt;br&gt;OAuth Google SignIn" style="whiteSpace=wrap;html=1;" vertex="1" parent="pkg_external">
+          <mxGeometry x="30" y="120" width="160" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Dependencies (Dashed edges) -->
+        <mxCell id="edge_f_c" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pkg_frontend" target="pkg_core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_f_c" value="&amp;lt;&amp;lt;use&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge_f_c">
+          <mxGeometry x="-0.2" y="2" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge_c_db" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="pkg_core" target="pkg_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_c_db" value="&amp;lt;&amp;lt;access&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge_c_db">
+          <mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge_db_au" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="pkg_db" target="pkg_auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_db_au" value="&amp;lt;&amp;lt;use&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge_db_au">
+          <mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge_c_an" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="pkg_core" target="pkg_analysis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_c_an" value="&amp;lt;&amp;lt;import&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge_c_an">
+          <mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge_an_ut" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pkg_analysis" target="pkg_utils">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_an_ut" value="&amp;lt;&amp;lt;import&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge_an_ut">
+          <mxGeometry x="-0.2" y="2" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge_c_ex" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pkg_core" target="pkg_external">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_c_ex" value="&amp;lt;&amp;lt;use&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge_c_ex">
+          <mxGeometry x="-0.2" y="2" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge_au_ex" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="pkg_auth" target="pkg_external">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_au_ex" value="&amp;lt;&amp;lt;use&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge_au_ex">
+          <mxGeometry x="-0.8" y="-18" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,30 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam circle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "Administrator" as User
+circle "1.0\nAuthenticate Role" as P1
+circle "2.0\nProcess Filters" as P2
+circle "3.0\nFetch Data" as P3
+circle "4.0\nFormat Output" as P4
+circle "5.0\nRender Dashboard" as P5
+
+queue "Audit Logs Collection" as DB
+rectangle "Monitored Users" as Monitor
+
+User -> P1 : Request Logs
+P1 -> P2 : Admin Verified
+P2 -> P3 : Applied Filters
+P3 <--> DB : Query Collection
+P3 -> P4 : Raw Audit Data
+P4 -> P5 : Formatted Stats
+P3 --> Monitor : Track User IDs
+P5 -> User : Show Dashboard
+
+@enduml

@@ -1,0 +1,222 @@
+.dashboard-page {
+  min-height: 100vh;
+  padding: 30px 40px; /* Reduced from 60px to 30px */
+  background: transparent !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  z-index: 1;
+}
+
+.dashboard-shell {
+  position: relative;
+  z-index: 2;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dashboard-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 40px 50px;
+  color: white;
+  border-radius: 24px;
+  transition: var(--transition);
+}
+
+.dashboard-hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-top-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.chart-grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.professional-glass {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.professional-glass:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+  z-index: 10;
+}
+
+.chart-container-compact {
+  padding: 35px;
+  min-height: 380px;
+}
+
+.stats-strip {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-pill {
+  flex: 1;
+  padding: 24px 30px;
+  border-radius: 20px;
+}
+
+.pill-value {
+  font-size: 24px;
+}
+
+.dashboard-middle-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.system-pulse-panel {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pulse-metric {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.p-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.p-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 3px;
+  transition: width 1s ease-in-out;
+}
+
+.pulse-meta {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+}
+
+.reviews-scroll {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.review-card {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover { transform: translateX(5px); background: rgba(255, 255, 255, 0.07); }
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: #312e81;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: white;
+}
+
+.feedback-section {
+  padding: 35px;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.cat-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cat-btn.active { background: #2563eb; border-color: #3b82f6; }
+
+.star-rating {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.star-icon { cursor: pointer; transition: transform 0.2s ease; }
+.star-icon:hover { transform: scale(1.2); }
+
+.feedback-input {
+  min-height: 180px;
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 15px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.char-count { font-size: 12px; color: rgba(255, 255, 255, 0.4); }
+
+@media (max-width: 1400px) {
+  .activity-grid { grid-template-columns: 1fr; }
+  .dashboard-middle-row { grid-template-columns: 1fr; }
+}

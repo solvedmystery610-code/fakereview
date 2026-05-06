@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-04-16T10:00:00.000Z" agent="Mozilla/5.0" version="21.6.8" type="device">
+  <diagram id="state-chart" name="State Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Nodes -->
+        <mxCell id="N1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="435" y="20" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="N2" value="Open System" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="380" y="90" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Signup Path -->
+        <mxCell id="N3" value="Signup Form Open" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="150" y="180" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N22" value="OTP Verification" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="150" y="280" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N4" value="Registering User" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="150" y="380" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Google Login -->
+        <mxCell id="N21" value="Google Authentication" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="380" y="280" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Login Path -->
+        <mxCell id="N5" value="Login Form Open" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="600" y="180" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N23" value="OTP Verification" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="600" y="280" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N6" value="Authenticating User" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="600" y="380" width="150" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Session Active -->
+        <mxCell id="N7" value="Session Active" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="385" y="480" width="130" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Admin Branch (Blue) -->
+        <mxCell id="N8" value="Admin Dashboard Viewed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="560" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N9" value="User Accounts Managed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="640" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N10" value="Course Library Managed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="720" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N11" value="Quiz Repository Managed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="800" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N12" value="System Analytics Analyzed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="880" width="180" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Student Branch (Purple) -->
+        <mxCell id="N13" value="Student Dashboard Viewed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="560" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N14" value="Course Selection Completed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="640" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N15" value="Skill Quiz Taken" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="720" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N16" value="Performance Analyzed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="800" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N17" value="Recommendation Generated" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="880" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N18" value="Timeline Viewed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="960" width="180" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- End Section -->
+        <mxCell id="N19" value="Process Completed" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="380" y="1040" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="N20_outer" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1120" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="N20_inner" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="N20_outer">
+          <mxGeometry x="5" y="5" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ================= EDGES ================= -->
+        <!-- Start to Open -->
+        <mxCell id="E1" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N1" target="N2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="E2" value="choose signup" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="N2" target="N3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="E6" value="choose login" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="N2" target="N5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Signup Edges -->
+        <mxCell id="E3a" value="enter details" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N3" target="N22">
+          <mxGeometry x="-0.5" y="-10" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="E3b" value="Google Sign-in" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.25;" edge="1" parent="1" source="N3" target="N21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="E3c" value="verify OTP" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N22" target="N4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Signup OTP Invalid Loop (Left side) -->
+        <mxCell id="E3d" value="invalid OTP" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="N22" target="N3">
+          <mxGeometry x="-0.4" y="15" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="300" />
+              <mxPoint x="100" y="200" />
+            </Array>
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="E4" value="success" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.25;entryY=1;" edge="1" parent="1" source="N4" target="N5">
+          <mxGeometry relative="1" as="geometry">
+             <Array as="points">
+              <mxPoint x="340" y="400" />
+              <mxPoint x="340" y="240" />
+              <mxPoint x="638" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Login Edges -->
+        <mxCell id="E7a" value="submit credentials" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N5" target="N23">
+          <mxGeometry x="-0.5" y="10" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="E7b" value="Google Sign-in" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.25;" edge="1" parent="1" source="N5" target="N21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="E7c" value="verify OTP" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N23" target="N6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Login OTP Invalid Loop (Right side) -->
+        <mxCell id="E8a" value="invalid OTP" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="N23" target="N5">
+          <mxGeometry x="-0.4" y="-15" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="300" />
+              <mxPoint x="800" y="200" />
+            </Array>
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Authenticating Invalid Credentials Loop (Wider Right side) -->
+        <mxCell id="E8c" value="invalid credentials" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=1;entryY=0.25;" edge="1" parent="1" source="N6" target="N5">
+          <mxGeometry x="-0.7" y="-20" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="400" />
+              <mxPoint x="840" y="190" />
+            </Array>
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="E9a" value="success" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" edge="1" parent="1" source="N6" target="N7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="E9b" value="success" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N21" target="N7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Fork Paths -->
+        <mxCell id="E10" value="Admin" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N7" target="N8">
+          <mxGeometry x="0.1" y="-10" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <mxCell id="E11" value="Student" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N7" target="N13">
+          <mxGeometry x="0.1" y="10" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Admin Nodes edges -->
+        <mxCell id="E12" value="users" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N8" target="N9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E13" value="courses" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N9" target="N10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E14" value="Quizzes" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N10" target="N11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E15" value="stats" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N11" target="N12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E16" value="logout" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="N12" target="N19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Student Nodes edges -->
+        <mxCell id="E17" value="search" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N13" target="N14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E18" value="Quiz" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N14" target="N15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E19" value="Analyze" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N15" target="N16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E20" value="Suggest" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N16" target="N17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E21" value="timeline" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N17" target="N18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E22" value="logout" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="N18" target="N19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="E23" value="end" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="N19" target="N20_outer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,30 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam circle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "User" as User
+circle "1.0\nUpload CSV/Excel" as P1
+circle "2.0\nParse Records" as P2
+circle "3.0\nBatch AI Process" as P3
+circle "4.0\nLog Audits" as P4
+circle "5.0\nReturn Report" as P5
+
+queue "Upload Logs Collection" as DB
+rectangle "Storage Node" as Storage
+
+User -> P1 : Submit File
+P1 -> P2 : Raw File Data
+P2 -> P3 : Extracted Records
+P3 -> P4 : Results Table
+P4 -> P5 : Finalized Output
+P4 -> DB : Save Stats
+P5 -> User : Download Report
+P5 -> Storage : Save Dump File
+
+@enduml

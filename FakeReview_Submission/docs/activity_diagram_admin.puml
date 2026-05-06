@@ -1,0 +1,57 @@
+@startuml
+skinparam activity {
+  BackgroundColor #ffffff
+  BorderColor #000000
+}
+
+|Admin Dashboard|
+start
+:Enter Id / Pass;
+
+|System Backend|
+:Validate Identity;
+
+|MongoDB Server|
+:Verify Id / Pass;
+
+|System Backend|
+if (Access Granted?) then (Login Error)
+  |Admin Dashboard|
+  :Login Error;
+else (Yes)
+  |Admin Dashboard|
+  repeat
+    :Dashboard Overview;
+    
+    if (Audit Logs?) then (Yes)
+      :Review Audit Logs;
+      |MongoDB Server|
+      :Update Audit DB;
+      |Admin Dashboard|
+      :Return Successful\n(Logs Evaluated);
+    else (No)
+    endif
+
+    if (Feedback Data?) then (Yes)
+      :Reply/Delete Feedback;
+      |MongoDB Server|
+      :Update Feedback DB;
+      |Admin Dashboard|
+      :Return Successful\n(Feedback Updated);
+    else (No)
+    endif
+
+    if (Manage Users?) then (Yes)
+      :Suspend/Flag Users;
+      |MongoDB Server|
+      :Update User Profiles;
+      |Admin Dashboard|
+      :Return Successful\n(Users Managed);
+    else (No)
+    endif
+
+  repeat while (No Logout) is (Yes)
+  :Clear Admin Session;
+endif
+stop
+@enduml

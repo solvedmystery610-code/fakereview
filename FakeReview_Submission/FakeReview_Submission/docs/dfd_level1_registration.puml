@@ -1,0 +1,31 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam circle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "User" as User
+circle "1.0\nInput Validation" as P1
+circle "2.0\nHash Password" as P2
+circle "3.0\nGenerate OTP" as P3
+circle "4.0\nVerify OTP Code" as P4
+circle "5.0\nSave User" as P5
+
+queue "Users Collection (MongoDB)" as DB
+rectangle "EmailJS / SMTP Server" as ExtEmail
+
+User -> P1 : Signup Details
+P1 <--> DB : Check Existence
+P1 -> P2 : Valid Data
+P2 -> P3 : Hashed Info
+P3 -> ExtEmail : Dispatch OTP
+P3 --> P4 : Await Action
+User --> P4 : Input OTP
+P4 -> P5 : Confirmed
+P5 -> DB : Insert Record
+
+@enduml

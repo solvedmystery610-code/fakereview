@@ -1,0 +1,31 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam circle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "User" as User
+circle "1.0\nInput Text" as P1
+circle "2.0\nNormalize Data" as P2
+circle "3.0\nCalculate Simhash" as P3
+circle "4.0\nML Predictor" as P4
+circle "5.0\nStore Result" as P5
+
+queue "Reviews Collection (MongoDB)" as DB
+rectangle "Alert Module" as Admin
+
+User -> P1 : Submit Review
+P1 -> P2 : Raw Text
+P2 -> P3 : Normalized String
+P3 <--> DB : Check Duplicates
+P3 -> P4 : Hash Features
+P4 -> P5 : Fake/Real Score
+P5 -> DB : Save Report
+P5 -> User : Display Verdict
+P5 -> Admin : High Risk Alert
+
+@enduml

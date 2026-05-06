@@ -1,0 +1,84 @@
+@startuml
+skinparam activity {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+}
+
+|User|
+start
+:Open Landing Page;
+:Enter Login Email;
+
+|Frontend|
+:Submit Email;
+
+repeat
+  |Backend|
+  :Generate OTP;
+
+  |SMTP Server|
+  :Dispatch OTP Email;
+
+  |User|
+  :Check Inbox for OTP;
+  :Receive & Enter OTP;
+
+  |Frontend|
+  :Submit OTP Code;
+
+  |Backend|
+  :Verify OTP;
+backward: In-valid / Re-enter OTP;
+repeat while (OTP Valid?) is (No)
+->Yes (Valid);
+
+|Backend|
+:Issue Session Token;
+
+|Frontend|
+:Open User Dashboard;
+
+repeat
+  |User|
+  :Input Review Data;
+
+  |Frontend|
+  :Dispatch Analysis Req;
+
+  |Backend|
+  :Preprocess Text;
+  :Run ML / Simhash;
+  :Save Result in DB;
+
+  |Frontend|
+  :Display Verdict;
+
+  |User|
+backward: Return to Input;
+repeat while (Analyze More?) is (Yes)
+
+|User|
+:Request Report;
+
+|Frontend|
+:Send Download Request;
+
+|Backend|
+:Generate CSV;
+
+|Frontend|
+:Trigger File DL;
+
+|User|
+:Download File;
+:Click Logout;
+
+|Frontend|
+:Clear Session;
+
+|Backend|
+:Terminate Token;
+
+|User|
+stop
+@enduml

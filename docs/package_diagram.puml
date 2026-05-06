@@ -1,0 +1,62 @@
+@startuml
+skinparam package {
+    BackgroundColor<<Frontend>> LightBlue
+    BackgroundColor<<Analysis>> Pink
+    BackgroundColor<<Utils>> LightYellow
+    BackgroundColor<<Core>> LightGreen
+    BackgroundColor<<DB>> Lavender
+    BackgroundColor<<Auth>> LightBlue
+    BackgroundColor<<External>> LightYellow
+}
+
+package "React Frontend Components" <<Frontend>> {
+  class "Landing Page" <<view>>
+  class "User Dashboard" <<view>>
+  class "Admin Panel" <<view>>
+  class "Review Analysis Views" <<view>>
+}
+
+package "Review Analysis System" <<Analysis>> {
+  class "Simhash Detector" <<process>>
+  class "ML Predictor" <<process>>
+  class "Text Normalizer" <<process>>
+}
+
+package "Parsing Utilities" <<Utils>> {
+  class "Token Extractor" <<process>>
+  class "Hash Matcher" <<process>>
+}
+
+package "External Services" <<External>> {
+  class "SMTP Mail Server" <<service>>
+  class "EmailJS Provider" <<service>>
+  class "OAuth Google SignIn" <<service>>
+}
+
+package "Flask Backend Core" <<Core>> {
+  class "Review API endpoints" <<system>>
+  class "Analytics Tracker" <<process>>
+  class "Admin Config Service" <<system>>
+}
+
+package "Database Layer" <<DB>> {
+  class "MongoDB Connection" <<database>>
+  class "Users Document" <<database>>
+  class "Reviews Collection" <<database>>
+}
+
+package "Authentication Layer" <<Auth>> {
+  class "OTP Generator" <<process>>
+  class "Session Manager" <<system>>
+  class "Custom Login Flow" <<system>>
+}
+
+"React Frontend Components" ..> "Flask Backend Core" : <<use>>
+"Flask Backend Core" ..> "Authentication Layer" : <<use>>
+"Flask Backend Core" ..> "Database Layer" : <<access>>
+"Flask Backend Core" ..> "Review Analysis System" : <<import>>
+"Review Analysis System" ..> "Parsing Utilities" : <<import>>
+"Authentication Layer" ..> "External Services" : <<use>>
+"Flask Backend Core" ..> "External Services" : <<use>>
+
+@enduml

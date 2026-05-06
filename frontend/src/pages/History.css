@@ -1,0 +1,129 @@
+.history-page {
+  min-height: 100vh;
+  padding: 60px 40px;
+  background: transparent !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 1;
+}
+
+.history-shell {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.history-hero {
+  margin-bottom: 48px;
+  text-align: center;
+  color: white;
+}
+
+.history-hero h1 {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.history-card {
+  margin-bottom: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-left: 6px solid transparent;
+}
+
+.history-card.fake {
+  border-left-color: #f87171;
+}
+
+.history-card.genuine {
+  border-left-color: #4ade80;
+}
+
+.review-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.history-meta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 13px;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+.result-badge {
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.result-badge.fake { background: #fee2e2; color: #ef4444; }
+.result-badge.genuine { background: #dcfce7; color: #22c55e; }
+
+.confidence-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.confidence-bar {
+  height: 100%;
+  transition: width 1s ease;
+}
+
+.confidence-bar.fake { background: linear-gradient(90deg, #ef4444, #f87171); }
+.confidence-bar.genuine { background: linear-gradient(90deg, #22c55e, #4ade80); }
+
+.reason-list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reason-item {
+  font-size: 13px;
+  color: #475569;
+  font-style: italic;
+}
+
+.history-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .history-page { padding: 40px 20px; }
+  .history-hero h1 { font-size: 32px; }
+}

@@ -1,0 +1,100 @@
+<mxfile host="Electron" type="device">
+  <diagram id="collaboration_diagram" name="FakeReview Collaboration Diagram">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Objects and Actor -->
+        <mxCell id="act_user" value="User / Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_auth" value=":Auth_System" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_dashboard" value=":User_Dashboard" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_batch" value=":Batch_Processor" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_parser" value=":Review_Parser" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="880" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_ml" value=":ML_Engine" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_simhash" value=":Simhash_Module" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_report" value=":Report_Generator" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="880" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_db" value=":MongoDB_Database" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_admin" value=":Admin_Panel" style="whiteSpace=wrap;html=1;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Connections (Numbers are separate text labels on edges) -->
+
+        <!-- Connections (Associations are plain lines, Messages have arrows in labels) -->
+
+        <!-- 1. Submit Credentials -->
+        <mxCell id="c1" edge="1" parent="1" source="act_user" target="obj_auth" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t1" value="1. Submit Credentials &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c1"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-15" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 2. Authorize Session -->
+        <mxCell id="c2" edge="1" parent="1" source="obj_auth" target="obj_dashboard" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t2" value="2. Authorize Session &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c2"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-15" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 3. Fetch Dashboard Data -->
+        <mxCell id="c3" edge="1" parent="1" source="obj_dashboard" target="obj_db" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t3" value="3. Fetch Dashboard Data &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=90;" vertex="1" connectable="0" parent="c3"><mxGeometry x="0.1" relative="1" as="geometry"><mxPoint x="-20" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 4. Process Batch Uploads -->
+        <mxCell id="c4" edge="1" parent="1" source="obj_dashboard" target="obj_batch" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t4" value="4. Process Batch Uploads &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c4"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-15" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 5. Start File Ingestion -->
+        <mxCell id="c5" edge="1" parent="1" source="obj_batch" target="obj_parser" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t5" value="5. Start File Ingestion &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c5"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-15" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 6. Identify Patterns -->
+        <mxCell id="c6" edge="1" parent="1" source="obj_parser" target="obj_ml" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t6" value="6. Identify Patterns &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c6"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="-15" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 7. Check Similarity -->
+        <mxCell id="c7" edge="1" parent="1" source="obj_ml" target="obj_simhash" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t7" value="7. Check Similarity &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=90;" vertex="1" connectable="0" parent="c7"><mxGeometry x="0.1" relative="1" as="geometry"><mxPoint x="20" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 8. Generate Analytics -->
+        <mxCell id="c8" edge="1" parent="1" source="obj_simhash" target="obj_report" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t8" value="&#11013; 8. Generate Analytics" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c8"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="15" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 9. Finalized Results Ready -->
+        <mxCell id="c9" edge="1" parent="1" source="obj_report" target="obj_dashboard" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="640" y="330" /><mxPoint x="460" y="240" /></Array></mxGeometry></mxCell>
+        <mxCell id="t9" value="&#11013; 9. Finalized Results Ready" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c9"><mxGeometry x="0.1" relative="1" as="geometry"><mxPoint y="-20" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 10. Access Admin Actions -->
+        <mxCell id="c10" edge="1" parent="1" source="obj_dashboard" target="obj_admin" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="550" y="200" /><mxPoint x="640" y="300" /></Array></mxGeometry></mxCell>
+        <mxCell id="t10" value="10. Access Admin Actions &#10132;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c10"><mxGeometry x="0.1" relative="1" as="geometry"><mxPoint x="10" y="-15" as="offset" /></mxGeometry></mxCell>
+
+        <!-- 11. Manage Records -->
+        <mxCell id="c11" edge="1" parent="1" source="obj_admin" target="obj_db" style="endArrow=none;html=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t11" value="&#11013; 11. Manage Records" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="c11"><mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint y="15" as="offset" /></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

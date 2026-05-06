@@ -1,0 +1,30 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam circle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "User" as User
+circle "1.0\nLoad History UI" as P1
+circle "2.0\nApply Filters" as P2
+circle "3.0\nFetch Records" as P3
+circle "4.0\nBuild Tables" as P4
+circle "5.0\nGenerate Export" as P5
+
+queue "Reviews/History Collection (DB)" as DB
+rectangle "PDF/CSV Exporter" as Exporter
+
+User -> P1 : Navigate Database
+P1 -> P2 : Selection Query
+P2 -> P3 : Filtered Payload
+P3 <--> DB : Lookup Docs
+P3 -> P4 : Past Results
+P4 -> P5 : Download Req.
+P5 -> Exporter : Format File
+P5 -> User : Save Locally
+
+@enduml
