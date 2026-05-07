@@ -42,3 +42,10 @@ download_logs_collection = db["download_logs"]
 upload_logs_collection = db["upload_logs"]
 audit_logs_collection = db["audit_logs"]
 feedback_collection = db["feedback"]
+
+try:
+    client.admin.command('ping')
+    print("✅ MongoDB connected successfully!")
+except Exception as e:
+    print(f"❌ MongoDB connection failed: {e}")
+
