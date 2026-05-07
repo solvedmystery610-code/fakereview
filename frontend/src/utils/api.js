@@ -1,7 +1,8 @@
 const DEFAULT_API_BASE = "http://127.0.0.1:5000";
 
 export const getApiBase = () =>
-  import.meta.env.VITE_API_BASE_URL || DEFAULT_API_BASE;
+  import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_APP_BASE_URL || DEFAULT_API_BASE;
+
 
 export const apiFetch = (path, options = {}) => {
   const base = getApiBase();
