@@ -43,9 +43,12 @@ upload_logs_collection = db["upload_logs"]
 audit_logs_collection = db["audit_logs"]
 feedback_collection = db["feedback"]
 
+import logging
+
 try:
     client.admin.command('ping')
-    print("✅ MongoDB connected successfully!")
+    logging.info("✅ MongoDB connected successfully!")
 except Exception as e:
-    print(f"❌ MongoDB connection failed: {e}")
+    logging.error("❌ MongoDB connection failed: %s", e)
+
 

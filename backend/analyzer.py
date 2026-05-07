@@ -37,10 +37,9 @@ DATASET_CANDIDATES = [
     os.path.join(BASE_DIR, "datasets", "final_labeled_fake_reviews.csv"),
 ]
 
-MAX_TRAIN_ROWS = int(os.environ.get("FAKEREVIEW_TRAIN_ROWS", "10000"))
-WORD_MAX_FEATURES = int(os.environ.get("FAKEREVIEW_WORD_MAX_FEATURES", "20000"))
-CHAR_MAX_FEATURES = int(os.environ.get("FAKEREVIEW_CHAR_MAX_FEATURES", "20000"))
-
+MAX_TRAIN_ROWS = int(os.environ.get("FAKEREVIEW_TRAIN_ROWS", "50000"))
+WORD_MAX_FEATURES = int(os.environ.get("FAKEREVIEW_WORD_MAX_FEATURES", "80000"))
+CHAR_MAX_FEATURES = int(os.environ.get("FAKEREVIEW_CHAR_MAX_FEATURES", "80000"))
 MIN_DF = int(os.environ.get("FAKEREVIEW_MIN_DF", "30"))
 LOGREG_C = float(os.environ.get("FAKEREVIEW_LOGREG_C", "0.5"))
 MAX_ITER = int(os.environ.get("FAKEREVIEW_MAX_ITER", "1500"))
