@@ -14,3 +14,7 @@ frontend/.env
 .git/objects/
 Docfakereview/
 *.zip
+Docfakereview/
+*.zip
+venv/
+node_modules/
