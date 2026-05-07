@@ -664,6 +664,12 @@ def verify_google_credential(credential):
     return payload
 
 
+@app.errorhandler(Exception)
+def handle_exception(e):
+    logging.exception("Unhandled exception occurred: %s", e)
+    return jsonify({"error": str(e)}), 500
+
+
 def record_audit(actor, action, target, details=None):
     audit_logs_collection.insert_one({
         "actor": actor or "system",
