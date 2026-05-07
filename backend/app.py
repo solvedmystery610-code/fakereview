@@ -635,9 +635,12 @@ def verify_google_credential(credential):
 
     expected_client_id = get_setting("GOOGLE_CLIENT_ID", "VITE_GOOGLE_CLIENT_ID")
     if not expected_client_id:
+        logging.error("GOOGLE_CLIENT_ID not found in environment settings!")
         raise RuntimeError("Google sign-in is not configured on the server.")
 
+    logging.info("Verifying Google token for Client ID: %s...", expected_client_id[:10] + "...")
     query = urllib_parse.urlencode({"id_token": credential})
+
     token_request = urllib_request.Request(
         f"{GOOGLE_TOKENINFO_ENDPOINT}?{query}",
         method="GET",
@@ -1787,9 +1790,15 @@ def auth_google():
     try:
         google_user = verify_google_credential(credential)
     except ValueError as exc:
+        logging.error("Google auth ValueError: %s", exc)
         return jsonify({"error": str(exc)}), 400
     except RuntimeError as exc:
+        logging.error("Google auth RuntimeError: %s", exc)
         return jsonify({"error": str(exc)}), 502
+    except Exception as exc:
+        logging.exception("Google auth unexpected error: %s", exc)
+        return jsonify({"error": "Internal server error during Google auth"}), 500
+
 
     username = (google_user.get("email") or "").strip().lower()
     if not username:
