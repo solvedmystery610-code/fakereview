@@ -39,7 +39,8 @@ from database import (
 )
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 ADMIN_USERNAME = "solvedmystery610@gmail.com"
 ADMIN_PASSWORD = "@Steam0786"
