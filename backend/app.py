@@ -483,8 +483,13 @@ def send_email_message(
     app_base_url = build_app_base_url()
 
     if not service_id or not template_id or not public_key:
-        logging.warning("No email sender is configured or placeholders used. Skipping email send.")
-        return # Skip sending, but don't crash
+        missing = []
+        if not service_id: missing.append("SERVICE_ID")
+        if not template_id: missing.append("TEMPLATE_ID")
+        if not public_key: missing.append("PUBLIC_KEY")
+        logging.warning("EmailJS is missing keys: %s. Skipping email send.", ", ".join(missing))
+        return
+
 
     payload = {
         "service_id": service_id,
