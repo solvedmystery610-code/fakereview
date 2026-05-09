@@ -460,15 +460,21 @@ def send_email_message(
         email_message["To"] = to_email
         email_message.set_content(message or "")
 
-        with smtplib.SMTP_SSL(
-            smtp_host,
-            smtp_port,
-            context=ssl.create_default_context(),
-            timeout=20,
-        ) as server:
-            server.login(smtp_user, smtp_password)
-            server.send_message(email_message)
-        return
+        try:
+            if smtp_port == 465:
+                server = smtplib.SMTP_SSL(smtp_host, smtp_port, context=ssl.create_default_context(), timeout=20)
+            else:
+                server = smtplib.SMTP(smtp_host, smtp_port, timeout=20)
+                server.starttls(context=ssl.create_default_context())
+            
+            with server:
+                server.login(smtp_user, smtp_password)
+                server.send_message(email_message)
+            return
+        except Exception as exc:
+            logging.error("SMTP send failed: %s", exc)
+            # Fallback to EmailJS or raise error
+
 
     service_id = get_setting("EMAILJS_SERVICE_ID", "VITE_EMAILJS_SERVICE_ID")
     template_id = get_email_template_id(event_type)
@@ -1795,6 +1801,7 @@ def auth_google():
 
     try:
         google_user = verify_google_credential(credential)
+
     except ValueError as exc:
         logging.error("Google auth ValueError: %s", exc)
         return jsonify({"error": str(exc)}), 400
