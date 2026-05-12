@@ -174,7 +174,7 @@ class TfidfLinearModel:
                     rating_value = 0.0
                 rows.append({
                     "text": combined,
-                    "label": 0 if str(label_raw).strip() == "1" else 1,
+                    "label": 1 if str(label_raw).strip() == "1" else 0,
                     "group": row.get("parent_asin") or row.get("asin") or row.get("user_id") or f"row-{processed}",
                     "rating": rating_value,
                 })
@@ -788,9 +788,12 @@ def analyze_review(review, rating, duplicate_info=None):
     if word_count > 25 or sentence_count >= 2:
         probability -= 0.03
     
-    # If the text sentiment is negative, treat as more likely Genuine (spam is usually positive)
+    # If the text sentiment is negative, treat as slightly more likely Genuine (spam is usually positive)
     if sentiment_score < -0.15:
-        probability -= 0.04
+        probability -= 0.10
+    elif sentiment_score > 0.25:
+        # High positive sentiment can be suspicious in short reviews
+        probability += 0.05
     
     numeric_hits = len(re.findall(r"\b\d+(?:\.\d+)?\b", text))
     repeated_bigrams = 0
@@ -806,17 +809,9 @@ def analyze_review(review, rating, duplicate_info=None):
         pass
 
     if duplicate_info:
-        distance = duplicate_info.get("distance")
-        if duplicate_info.get("exact"):
-            probability += 0.08
-            _add_reason(reasons, "Exact duplicate of an existing review")
-        elif duplicate_info.get("near"):
-            if distance is not None and distance <= 3:
-                probability += 0.04
-                _add_reason(reasons, "Very close match to another stored review")
-            else:
-                probability += 0.02
-                _add_reason(reasons, "Noticeably similar to another stored review")
+        if duplicate_info.get("exact") or duplicate_info.get("near"):
+            probability = 0.95
+            _add_reason(reasons, "Duplicate or near-duplicate of an existing review detected")
 
     if generic_ratio is not None and word_count >= 10 and generic_ratio >= 0.78:
         _add_reason(reasons, "Language is unusually generic compared with the training reviews")
