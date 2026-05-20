@@ -1,7 +1,15 @@
 const DEFAULT_API_BASE = "http://127.0.0.1:5000";
 
-export const getApiBase = () =>
-  import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_APP_BASE_URL || DEFAULT_API_BASE;
+export const getApiBase = () => {
+  if (typeof window !== "undefined") {
+    const hostname = window.location.hostname;
+    // If running on a deployed domain (not localhost / 127.0.0.1)
+    if (hostname && hostname !== "localhost" && hostname !== "127.0.0.1") {
+      return "https://fakereview-duij.onrender.com";
+    }
+  }
+  return import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_APP_BASE_URL || DEFAULT_API_BASE;
+};
 
 
 export const apiFetch = (path, options = {}) => {
