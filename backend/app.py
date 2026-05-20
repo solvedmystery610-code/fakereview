@@ -41,6 +41,12 @@ from database import (
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+# Warm up the model on startup
+try:
+    warm_model_async()
+except Exception as e:
+    logging.error("Failed to warm up model on startup: %s", e)
+
 
 ADMIN_USERNAME = "solvedmystery610@gmail.com"
 ADMIN_PASSWORD = "@Steam0786"
@@ -367,7 +373,7 @@ def build_user_doc(username, password, display_name):
 def prepare_signup_user(username, password, display_name):
     existing_user = users_collection.find_one({"username": username})
     if existing_user:
-        if is_email_verified(existing_user):
+        if is_email_verified(existing_user) and existing_user.get("password"):
             raise ValueError("User already exists")
 
         users_collection.update_one(
@@ -734,14 +740,18 @@ def require_admin(username):
     return None
 
 
-def scan_cache(normalized, simhash_value):
+def scan_cache(normalized, simhash_value, username=None):
     if not normalized or not simhash_value:
         return {"exact": False, "near": False, "distance": None, "matched_review": None}
+    
+    effective_username = username or "guest"
 
     best_distance = None
     best_review = None
     with CACHE_LOCK:
         for item in SIMHASH_CACHE:
+            if item.get("username") == effective_username:
+                continue
             if item.get("norm") == normalized:
                 return {
                     "exact": True,
@@ -761,14 +771,19 @@ def scan_cache(normalized, simhash_value):
     }
 
 
-def cache_add(normalized, simhash_value, review_text):
+def cache_add(normalized, simhash_value, review_text, username=None):
     if not normalized or not simhash_value:
         return
     with CACHE_LOCK:
-        SIMHASH_CACHE.append({"norm": normalized, "simhash": simhash_value, "review": review_text})
+        SIMHASH_CACHE.append({
+            "norm": normalized,
+            "simhash": simhash_value,
+            "review": review_text,
+            "username": username or "guest",
+        })
 
 
-def find_duplicate_info(review_text, limit=300):
+def find_duplicate_info(review_text, username=None, limit=300):
     normalized = normalize_text(review_text)
     if not normalized:
         return {
@@ -785,7 +800,7 @@ def find_duplicate_info(review_text, limit=300):
     simhash_value = compute_simhash(review_text)
     simhash_hex = f"{simhash_value:016x}" if simhash_value else None
     bands = simhash_bands(simhash_value)
-    cache_result = scan_cache(normalized, simhash_value)
+    cache_result = scan_cache(normalized, simhash_value, username=username)
     if cache_result.get("exact"):
         return {
             "exact": True,
@@ -798,7 +813,9 @@ def find_duplicate_info(review_text, limit=300):
             "matched_review": cache_result.get("matched_review"),
         }
 
-    exact_match = reviews_collection.find_one({"norm_review": normalized}, {"review": 1, "simhash": 1})
+    effective_username = username or "guest"
+    query = {"norm_review": normalized, "username": {"$ne": effective_username}}
+    exact_match = reviews_collection.find_one(query, {"review": 1, "simhash": 1})
     if exact_match:
         return {
             "exact": True,
@@ -814,8 +831,9 @@ def find_duplicate_info(review_text, limit=300):
     best_distance = cache_result.get("distance")
     best_review = cache_result.get("matched_review")
     if bands:
+        db_query = {"simhash_bands": {"$in": bands}, "username": {"$ne": effective_username}}
         cursor = reviews_collection.find(
-            {"simhash_bands": {"$in": bands}},
+            db_query,
             {"review": 1, "simhash": 1},
         ).sort("timestamp", -1).limit(limit)
         for doc in cursor:
@@ -956,7 +974,7 @@ def validate_analysis_access(username, persist, review_count=1):
 
 
 def build_analysis_artifacts(review, rating, username="", platform="", category=""):
-    duplicate_info = find_duplicate_info(review)
+    duplicate_info = find_duplicate_info(review, username=username)
     analysis = analyze_review(review, rating, duplicate_info)
 
     response_data = {
@@ -1489,7 +1507,7 @@ def login():
         if user.get("status") == "blocked":
             return jsonify({"error": "Account is blocked by admin"}), 403
         if user.get("auth_provider") == "google" and not user.get("password"):
-            return jsonify({"error": "Use Google sign-in for this account."}), 400
+            return jsonify({"error": "Use Google sign-in for this account. Or, if you want to use password/OTP login, please Sign Up first to set a password."}), 400
         if user.get("password") != password:
             return jsonify({"error": "Wrong password"}), 401
         if not otp_code:
@@ -1541,7 +1559,7 @@ def request_login_otp():
     if user.get("status") == "blocked":
         return jsonify({"error": "Account is blocked by admin"}), 403
     if user.get("auth_provider") == "google" and not user.get("password"):
-        return jsonify({"error": "Use Google sign-in for this account."}), 400
+        return jsonify({"error": "Use Google sign-in for this account. Or, if you want to use password/OTP login, please Sign Up first to set a password."}), 400
     if user.get("password") != password:
         return jsonify({"error": "Wrong password"}), 401
 
@@ -1908,6 +1926,7 @@ def analyze():
                 artifacts["duplicate"].get("normalized"),
                 artifacts["duplicate"].get("simhash_value"),
                 review,
+                username=username,
             )
 
         logging.info("Review analyzed by %s", username or "guest")
@@ -2006,7 +2025,7 @@ def analyze_batch():
             for doc in review_docs:
                 simhash_hex = doc.get("simhash")
                 simhash_value = int(simhash_hex, 16) if simhash_hex else None
-                cache_add(doc.get("norm_review"), simhash_value, doc.get("review"))
+                cache_add(doc.get("norm_review"), simhash_value, doc.get("review"), username=username)
 
         logging.info("Batch analyzed by %s (%s reviews)", username or "guest", len(results))
         return jsonify({
@@ -2252,4 +2271,4 @@ def admin_user_action():
 
 if __name__ == "__main__":
     print("Server running on http://127.0.0.1:5000")
-    app.run(debug=True, port=5000)
+    app.run(debug=False, use_reloader=False, port=5000)
